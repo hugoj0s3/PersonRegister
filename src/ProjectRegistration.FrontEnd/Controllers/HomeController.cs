@@ -57,7 +57,7 @@ namespace ProjectRegistration.FrontEnd.Controllers
         public async Task<IActionResult> Update(string id = "")
         {
 
-            var person = await GetRequestWebApi<PersonViewModel>($"/Person/Delete/{id}");
+            var person = await GetRequestWebApi<PersonViewModel>($"/Person/Get/{id}");
 
             if (person == null)
             {
