@@ -1,0 +1,46 @@
+﻿@model SearchPersonViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h3>@ViewBag.Title</h3>
+@using (Html.BeginForm(FormMethod.Get))
+{
+    <div class="input-group">
+        @Html.TextBoxFor(x => x.Text, new {@class = "form-control", placeholder = "Search for..." })
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="submit" value="Text">Search</button>
+           
+        </span>
+    </div>
+}
+
+<table class="table">
+    <tr>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Email</th>
+    </tr>
+    @foreach (var person in Model.Persons)
+    {
+        <tr>
+            <td>@person.FirstName</td>
+            <td>@person.LastName</td>
+            <td>@person.Email</td>
+            <td>
+                <div class="pull-right">
+                    <a href="@Url.Action("Update", new { id = person.Id })" class="btn btn-warning btn-sm margin-right">
+                        <span class="glyphicon glyphicon-edit"></span><span class="hidden-xs"> Edit</span>
+                    </a>
+                    <a href="@Url.Action("Delete", new { id = person.Id })" class="btn btn-danger btn-sm">
+                        <span class="glyphicon glyphicon-trash"></span><span class="hidden-xs"> Delete</span>
+                    </a>
+                </div>
+            </td>
+        </tr>
+        }
+</table>
+
+<a href="@Url.Action("Add", "Home")" class="btn btn-primary">
+    <span class="glyphicon glyphicon-plus"></span> Add Person
+</a>
