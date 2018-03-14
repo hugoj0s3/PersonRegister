@@ -9,8 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using PersonRegistration.Application;
-using PersonRegistration.Application.ViewModels;
 using ProjectRegistration.FrontEnd.Models;
 using static Newtonsoft.Json.JsonConvert;
 
